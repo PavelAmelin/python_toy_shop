@@ -19,7 +19,7 @@ class Toy:
         self.weight = weight
 
     def add_toy(self):
-        self.shop_items.setdefault(self.id, []).extend((self.name, self.quant, self.weight))
+        self.shop_items[self.id] = [self.name, self.quant, self.weight]
         return self.shop_items
 
     def list_of_weight_for_lottery(self):
@@ -72,7 +72,7 @@ for k, v in toy5.add_weight().items():
 try:
     cnt = int(input('Введите количество игрушек для розыгрыша (меньше того что осталось в магазине): '))
     if cnt >= len(Toy.lst_lottery):
-        raise OurRangeError('Количество, большее или равное всем игрушек в магазине, разыгрываться не может')
+        raise OurRangeError('Количество, большее или равное количеству всех игрушек в магазине, разыгрываться не может')
     for i in range(1, cnt + 1):
         print(f'Прошел розыгрыш № {i}')
         print(toy5.lottery_prize(i))
