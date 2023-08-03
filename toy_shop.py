@@ -10,7 +10,6 @@ class OurRangeError(Exception):
 class Toy:
     shop_items = {}
     lst_lottery = []
-    win_dct = {}
 
     def __init__(self, id, name, quant, weight):
         self.id = id
